@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>psiir. — Projets</title>
+  <link rel="stylesheet" href="./css/menu.css">
+  <link rel="stylesheet" href="./css/work1.css">
+</head>
+<body>
+  <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+  <label for="menu-icon"></label>
+  <nav class="nav">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./presentation.html">Catégories</a></li>
+      <li><a href="./work1.html">Projets</a></li>
+      <li><a href="./about.html">À propos</a></li>
+
+    </ul>
+  </nav>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <button class="filter-btn active" data-type="all">Tous</button>
+      <button class="filter-btn" data-type="personnel">Personnel</button>
+      <button class="filter-btn" data-type="ecole">École</button>
+      <button class="filter-btn" data-type="client">Client</button>
+    </div>
+    <div class="filter-separator"></div>
+    <div class="filter-group">
+      <button class="filter-btn cat active" data-cat="all">Tout</button>
+      <button class="filter-btn cat" data-cat="3d">3D</button>
+      <button class="filter-btn cat" data-cat="video">Vidéo</button>
+      <button class="filter-btn cat" data-cat="photo">Photo</button>
+      <button class="filter-btn cat" data-cat="design">Design</button>
+    </div>
+  </div>
+
+  <div class="grid-container" id="grid"></div>
+
+  <script src="./js/projects-data.js"></script>
+  <script>
+    const grid = document.getElementById('grid');
+    let activeType = 'all';
+    let activeCat  = 'all';
+
+    function buildGrid() {
+      grid.innerHTML = '';
+      const filtered = PROJECTS.filter(p => {
+        const typeOk = activeType === 'all' || p.type === activeType;
+        const catOk  = activeCat  === 'all' || p.category === activeCat;
+        return typeOk && catOk;
+      });
+      if (!filtered.length) {
+        grid.innerHTML = '<p class="empty-msg">Aucun projet dans cette sélection.</p>';
+        return;
+      }
+      // Featured en premier
+      filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      filtered.forEach(p => {
+        const item = document.createElement('div');
+        item.className = 'grid-item';
+        item.style.backgroundImage = `url('${p.thumbnail}')`;
+        item.innerHTML = `<div class="grid-overlay"></div><div class="grid-info"><span class="grid-title">${p.title}</span><span class="grid-year">${p.year}</span></div>`;
+        item.addEventListener('click', () => window.location.href = `project-detail.html?id=${p.id}`);
+        grid.appendChild(item);
+      });
+    }
+
+    document.querySelectorAll('[data-type]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeType = btn.dataset.type;
+        buildGrid();
+      });
+    });
+
+    document.querySelectorAll('[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.cat;
+        buildGrid();
+      });
+    });
+
+    const params  = new URLSearchParams(window.location.search);
+    const urlType = params.get('type');
+    const urlCat  = params.get('cat');
+    if (urlType) {
+      const btn = document.querySelector(`[data-type="${urlType}"]`);
+      if (btn) btn.click(); else buildGrid();
+    } else if (urlCat) {
+      const btn = document.querySelector(`[data-cat="${urlCat}"]`);
+      if (btn) btn.click(); else buildGrid();
+    } else {
+      buildGrid();
+    }
+  </script>
+  <script src="./js/transitions.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: black;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Canvas — z-index:0, reçoit les events souris/touch */
+#container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  pointer-events: auto;
+  background-color: #000;
+}
+
+/* main — par-dessus le canvas, transparent aux events sauf ses enfants */
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Nom — centré verticalement, à gauche */
+.text-container {
+  position: absolute;
+  left: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+h1#titre {
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 2vw;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+h1#titre:hover {
+  color: red;
+  text-decoration: line-through;
+}
+
+/* Icônes — centrées verticalement, à droite */
+.icon-container {
+  position: absolute;
+  right: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  pointer-events: auto;
+}
+
+.icon-link {
+  color: white;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  line-height: 1;
+}
+
+.icon-link:hover { color: red; }
+
+/* ── Responsive ─────────────────────────── */
+
+/* Sur mobile : nom et icônes toujours visibles */
+@media screen and (max-width: 768px) {
+  h1#titre   { font-size: clamp(1rem, 5vw, 2rem); }
+  .icon-link { font-size: 1.4rem; }
+}
+
+@media screen and (max-width: 480px) {
+  h1#titre        { font-size: clamp(1rem, 6vw, 1.8rem); }
+  .text-container { left: 6vw; }
+  .icon-container { right: 6vw; gap: 16px; }
+  .icon-link      { font-size: 1.3rem; }
+}

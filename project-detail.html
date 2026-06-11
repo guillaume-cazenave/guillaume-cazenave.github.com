@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>psiir. — Projet</title>
+  <link rel="stylesheet" href="./css/menu.css">
+  <link rel="stylesheet" href="./css/project-detail.css">
+</head>
+<body>
+  <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+  <label for="menu-icon"></label>
+  <nav class="nav">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./presentation.html">Catégories</a></li>
+      <li><a href="./work1.html">Projets</a></li>
+      <li><a href="./about.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <a href="./work1.html" class="back-btn">← Retour</a>
+  <div id="project-container"></div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <button class="lightbox-arrow left" id="lightbox-prev">&#8249;</button>
+    <div class="lightbox-img-wrap" id="lightbox-content"></div>
+    <button class="lightbox-arrow right" id="lightbox-next">&#8250;</button>
+    <div class="lightbox-dots" id="lightbox-dots"></div>
+  </div>
+
+  <script src="./js/projects-data.js"></script>
+  <script src="./js/Slider.js" defer></script>
+  <script>
+  (function() {
+    var id = new URLSearchParams(window.location.search).get('id');
+    var project = PROJECTS.find(function(p) { return p.id === id; });
+    var container = document.getElementById('project-container');
+
+    if (!project) {
+      container.innerHTML = '<p class="not-found">Projet introuvable. <a href="work1.html">Retour</a></p>';
+      return;
+    }
+
+    document.title = 'psiir. — ' + project.title;
+
+    // ── PAGE SPÉCIALE ADDIK'TOK ────────────────────────────
+    if (project.addiktok) {
+      var reelsHTML = `        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7586596347776617750"
+            data-video-id="7586596347776617750"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7572193547152280854"
+            data-video-id="7572193547152280854"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7634556346393824535"
+            data-video-id="7634556346393824535"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7629636691925437718"
+            data-video-id="7629636691925437718"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7593289071368178966"
+            data-video-id="7593289071368178966"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7569592939521920278"
+            data-video-id="7569592939521920278"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7582910411528326422"
+            data-video-id="7582910411528326422"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7628174827307666710"
+            data-video-id="7628174827307666710"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7637155585875561750"
+            data-video-id="7637155585875561750"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7585509895479315734"
+            data-video-id="7585509895479315734"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7618598153939324182"
+            data-video-id="7618598153939324182"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7623434820911107350"
+            data-video-id="7623434820911107350"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7624439723574152451"
+            data-video-id="7624439723574152451"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7602968198991908118"
+            data-video-id="7602968198991908118"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+        <div class="reel-item">
+          <blockquote class="tiktok-embed"
+            cite="https://www.tiktok.com/@addik_tok/video/7586617476448849174"
+            data-video-id="7586617476448849174"
+            data-embed-from="oembed"
+            style="max-width:100%;min-width:0;">
+            <section></section>
+          </blockquote>
+        </div>
+`;
+
+      var descHTML = project.description.replace(/\n\n/g, '</p><p>');
+      var tagsHTML = project.tags.map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
+
+      container.innerHTML = '<div class="addiktok-page">'
+        + '<div class="addiktok-header">'
+        + '<div class="project-meta"><span class="project-year">' + project.year + '</span>'
+        + '<span class="project-category">CLIENT — VIDÉO</span></div>'
+        + '<h1>' + project.title + '</h1>'
+        + '<p>' + descHTML + '</p>'
+        + '<div class="tags">' + tagsHTML + '</div>'
+        + '</div>'
+        + '<div class="reels-grid">' + reelsHTML + '</div>'
+        + '</div>';
+
+      var s = document.createElement('script');
+      s.src = 'https://www.instagram.com/embed.js';
+      s.async = true;
+      document.body.appendChild(s);
+      return;
+    }
+
+    // ── PAGE PROJET STANDARD ───────────────────────────────
+    function isYT(url) { return url && url.indexOf('youtube.com/embed') !== -1; }
+
+    var slidesHTML = project.images.map(function(src, i) {
+      if (isYT(src)) {
+        return '<div class="slide-item slide-video" data-index="' + i + '">'
+          + '<iframe src="' + src + '" frameborder="0" allowfullscreen></iframe>'
+          + '</div>';
+      }
+      return '<img src="' + src + '" alt="' + project.title + '" loading="lazy" class="slider-img" data-index="' + i + '" style="cursor:zoom-in">';
+    }).join('');
+
+    var dotsHTML = project.images.length > 1
+      ? '<div class="slider-dots">' + project.images.map(function(_, i) {
+          return '<span class="dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></span>';
+        }).join('') + '</div>'
+      : '';
+
+    var descHTML = project.description.replace(/\n\n/g, '</p><p>');
+    var tagsHTML = project.tags.map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
+    var linkHTML = (project.link && !isYT(project.link))
+      ? '<a href="' + project.link + '" class="project-link" target="_blank">Voir le projet ↗</a>'
+      : '';
+
+    container.innerHTML = '<div class="project-container">'
+      + '<div class="slider-wrapper">'
+      + '<div class="slider-container">'
+      + '<button class="arrow left">&#8249;</button>'
+      + '<div class="slider" id="slider">' + slidesHTML + '</div>'
+      + '<button class="arrow right">&#8250;</button>'
+      + '</div>' + dotsHTML + '</div>'
+      + '<div class="project-content">'
+      + '<div class="project-meta">'
+      + '<span class="project-year">' + project.year + '</span>'
+      + '<span class="project-category">' + project.category.toUpperCase() + '</span>'
+      + '</div>'
+      + '<h1>' + project.title + '</h1>'
+      + '<p>' + descHTML + '</p>'
+      + '<div class="tags">' + tagsHTML + '</div>'
+      + linkHTML
+      + '</div></div>';
+
+    // Dots slider
+    if (project.images.length > 1) {
+      var dots = document.querySelectorAll('.dot');
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          window._sliderGoTo && window._sliderGoTo(parseInt(dot.dataset.index));
+        });
+      });
+      window._onSlideChange = function(idx) {
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      };
+    }
+
+    // Lightbox
+    var images = project.images;
+    var imageIndexes = images.map(function(s, i) { return isYT(s) ? null : i; }).filter(function(i) { return i !== null; });
+    var lightbox   = document.getElementById('lightbox');
+    var lbContent  = document.getElementById('lightbox-content');
+    var lbDots     = document.getElementById('lightbox-dots');
+    var lbClose    = document.getElementById('lightbox-close');
+    var lbPrev     = document.getElementById('lightbox-prev');
+    var lbNext     = document.getElementById('lightbox-next');
+    var current    = 0;
+
+    lbDots.innerHTML = imageIndexes.map(function(_, i) {
+      return '<span class="lb-dot' + (i === 0 ? ' active' : '') + '" data-pos="' + i + '"></span>';
+    }).join('');
+
+    function openLightbox(idx) {
+      if (isYT(images[idx])) return;
+      current = idx;
+      lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+      updateLbDots();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lbContent.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    function lbGo(dir) {
+      var next = current;
+      do { next = (next + dir + images.length) % images.length; }
+      while (isYT(images[next]) && next !== current);
+      current = next;
+      lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+      updateLbDots();
+    }
+    function updateLbDots() {
+      var pos = imageIndexes.indexOf(current);
+      document.querySelectorAll('.lb-dot').forEach(function(d, i) { d.classList.toggle('active', i === pos); });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('slider-img')) openLightbox(parseInt(e.target.dataset.index));
+    });
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', function() { lbGo(-1); });
+    lbNext.addEventListener('click', function() { lbGo(1); });
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lbGo(-1);
+      if (e.key === 'ArrowRight') lbGo(1);
+    });
+    var tx = 0;
+    lightbox.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', function(e) {
+      var diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) < 40) return;
+      lbGo(diff > 0 ? 1 : -1);
+    });
+    lbDots.addEventListener('click', function(e) {
+      if (e.target.classList.contains('lb-dot')) {
+        current = imageIndexes[parseInt(e.target.dataset.pos)];
+        lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+        updateLbDots();
+      }
+    });
+  })();
+  </script>
+  <script src="./js/transitions.js"></script>
+</body>
+</html>
