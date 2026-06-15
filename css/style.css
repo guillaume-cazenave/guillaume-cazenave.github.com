@@ -1,94 +1,82 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
+/* Corps de la page */
 body {
-  background-color: black;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column; /* Pour aligner les éléments verticalement */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Canvas — z-index:0, reçoit les events souris/touch */
-#container {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  z-index: 0;
-  pointer-events: auto;
-  background-color: #000;
+main{
+    width: 95%;
+    height: 95%;
 }
 
-/* main — par-dessus le canvas, transparent aux events sauf ses enfants */
-main {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
-  pointer-events: none;
+/* Conteneur principal avec Flexbox */
+.main-container {
+    display: flex;
+    justify-content: space-between; /* Espacement maximal entre les éléments */
+    height: 100%;
+    width: 100%; /* Prendre toute la largeur disponible */
+    padding: 0; /* Ajout d'un padding à gauche et à droite pour un peu d'espace */
 }
 
-/* Nom — centré verticalement, à gauche */
+/* Conteneur du texte (titre) */
 .text-container {
-  position: absolute;
-  left: 4vw;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: auto;
+    display: flex;
+    justify-content: flex-start; /* Aligne le texte à gauche */
+    align-items: center; /* Aligne verticalement */
+    flex-grow: 1; /* Permet au texte de prendre l'espace restant */
 }
-
-h1#titre {
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 2vw;
-  margin: 0;
-  cursor: pointer;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-h1#titre:hover {
-  color: red;
-  text-decoration: line-through;
-}
-
-/* Icônes — centrées verticalement, à droite */
+/* Conteneur des icônes */
 .icon-container {
-  position: absolute;
-  right: 4vw;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  pointer-events: auto;
+    display: flex;
+    justify-content: flex-end; /* Aligne les icônes à droite */
+    gap: 20px; /* Espace entre les icônes */
+    align-items: center; /* Aligne verticalement les icônes */
 }
 
+/* Style des icônes (Instagram et Email) */
 .icon-link {
-  color: white;
-  font-size: 1.6rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  display: block;
-  line-height: 1;
+    color: white; /* Couleur des icônes */
+    font-size: 2rem; /* Taille des icônes */
+    transition: color 0.3s ease;
+    z-index: 2;
 }
 
-.icon-link:hover { color: red; }
-
-/* ── Responsive ─────────────────────────── */
-
-/* Sur mobile : nom et icônes toujours visibles */
-@media screen and (max-width: 768px) {
-  h1#titre   { font-size: clamp(1rem, 5vw, 2rem); }
-  .icon-link { font-size: 1.4rem; }
+/* Effet au survol des icônes */
+.icon-link:hover {
+    color: red; /* Change la couleur au survol (ici un rose pour Instagram) */
 }
 
-@media screen and (max-width: 480px) {
-  h1#titre        { font-size: clamp(1rem, 6vw, 1.8rem); }
-  .text-container { left: 6vw; }
-  .icon-container { right: 6vw; gap: 16px; }
-  .icon-link      { font-size: 1.3rem; }
+/* Style du titre */
+h1 {
+    color: white;
+    font-size: 2vw; /* Taille du texte en fonction de la largeur de la fenêtre */
+    text-align: center; /* Centre le texte */
+    margin: 0;
+    cursor: pointer; /* Change le curseur en main pour indiquer qu'il est interactif */
+    transition: all 0.3s ease; /* Ajoute une transition douce */
+    z-index: 2;
 }
+
+/* Effet au survol de la souris */
+h1:hover {
+    color: red; /* Change la couleur du texte barré */
+    text-decoration: line-through; /* Barrer le texte */
+}
+
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    pointer-events: auto; /* Permet d'interagir avec */
+  }
+
