@@ -34,7 +34,7 @@ const PROJECTS = [
     type: "client",
     category: "video",
     featured: true,
-    thumbnail: "img/proj/addiktok-thumb.jpg",
+    thumbnail: "img/proj/Addiktok.jpg",
     images: [],
     description: "Monteur et réalisateur vidéo en alternance pendant un an chez Addictions France. Écriture, réalisation et montage de plus de 50 contenus courts de prévention pour le dispositif Addik'Tok.\n\nProblématique centrale : produire du contenu audiovisuel de prévention crédible pour les jeunes sur les réseaux sociaux.",
     tags: ["Premiere Pro", "After Effects", "Motion design", "Réalisation"],
