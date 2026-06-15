@@ -98,19 +98,6 @@ const PROJECTS = [
     link: ""
   },
   {
-    id: "mapping-vosges",
-    title: "Mapping Vidéo — Haute Confiserie",
-    type: "ecole",
-    category: "video",
-    featured: false,
-    thumbnail: "img/proj/mapping-thumb.jpg",
-    images: ["img/proj/mapping-thumb.jpg", "img/proj/illu3d-2.jpg", "img/proj/illu3d-3.jpg"],
-    description: "Motion design pour mapping vidéo réalisé pour la Haute Confiserie des Vosges. Création des animations et intégration pour la projection architecturale.",
-    tags: ["After Effects", "Premiere Pro"],
-    year: "2026",
-    link: ""
-  },
-  {
     id: "jeu-video-gdevelop",
     title: "Jeu Vidéo 3D",
     type: "ecole",
@@ -146,19 +133,6 @@ const PROJECTS = [
     images: ["https://www.youtube.com/embed/SzUMlQtoHW8", "img/proj/oz-1.jpg", "img/proj/oz-2.jpg"],
     description: "Direction artistique pour un parc d'attraction sur le thème du Magicien d'Oz. Création d'affiches et de vidéos promotionnelles dans l'univers de la franchise.",
     tags: ["Illustrator", "Photoshop", "After Effects", "Premiere Pro"],
-    year: "2026",
-    link: ""
-  },
-  {
-    id: "perso-3d-lowpoly",
-    title: "Personnage 3D Low Poly",
-    type: "ecole",
-    category: "3d",
-    featured: false,
-    thumbnail: "img/proj/lowpoly-thumb.jpg",
-    images: ["img/proj/lowpoly-thumb.jpg", "img/proj/illu3d-2.jpg", "img/proj/illu3d-3.jpg"],
-    description: "Réalisation d'un personnage 3D en low poly sous Blender avec animation en motion capture. Rigging, skinning et intégration des données mocap.",
-    tags: ["Blender", "Motion capture", "Marvelous Designer", "Substance Painter"],
     year: "2026",
     link: ""
   },
@@ -230,19 +204,6 @@ const PROJECTS = [
     images: ["https://www.youtube.com/embed/vBMlWwd3VGQ"],
     description: "Commande d'un visuel 3D pour l'annonce d'un événement de breakdance à Bruxelles. Réalisé sur Blender et Premiere Pro.",
     tags: ["Blender", "Premiere Pro", "Marvelous Designer", "Substance Painter"],
-    year: "2026",
-    link: ""
-  },
-  {
-    id: "visualiseur-rappeur",
-    title: "Visualiseur 3D — Rappeur",
-    type: "client",
-    category: "3d",
-    featured: false,
-    thumbnail: "img/proj/visualiseur-thumb.jpg",
-    images: ["img/proj/visualiseur-thumb.jpg", "img/proj/illu3d-2.jpg", "img/proj/illu3d-3.jpg"],
-    description: "Commande d'un visualiseur 3D pour un client rappeur, dirigé par Femz. Réalisé entièrement sur Blender, Premiere Pro et After Effects.",
-    tags: ["Blender", "Premiere Pro", "After Effects", "Marvelous Designer", "Substance Painter"],
     year: "2026",
     link: ""
   },
