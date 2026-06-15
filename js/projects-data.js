@@ -71,19 +71,7 @@ const PROJECTS = [
 
   // ── ÉCOLE ──────────────────────────────────────────────────
 
-  {
-    id: "tuto-slider-interview",
-    title: "Tuto Slider & Interview",
-    type: "ecole",
-    category: "video",
-    featured: false,
-    thumbnail: "https://img.youtube.com/vi/vSxGU-zlZMw/maxresdefault.jpg",
-    images: ["https://www.youtube.com/embed/vSxGU-zlZMw"],
-    description: "Projet tutoré — réalisation de deux tutoriels vidéo : un tuto slider et un tuto interview. Écriture, tournage, montage et motion design.",
-    tags: ["Premiere Pro", "After Effects"],
-    year: "2026",
-    link: "https://www.youtube.com/embed/vSxGU-zlZMw"
-  },
+
   {
     id: "photo-roche",
     title: "Direction Artistique — La Roche",
@@ -97,6 +85,21 @@ const PROJECTS = [
     year: "2026",
     link: ""
   },
+
+    {
+    id: "tuto-slider-interview",
+    title: "Tuto Slider & Interview",
+    type: "ecole",
+    category: "video",
+    featured: false,
+    thumbnail: "https://img.youtube.com/vi/vSxGU-zlZMw/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/vSxGU-zlZMw"],
+    description: "Projet tutoré — réalisation de deux tutoriels vidéo : un tuto slider et un tuto interview. Écriture, tournage, montage et motion design.",
+    tags: ["Premiere Pro", "After Effects"],
+    year: "2026",
+    link: "https://www.youtube.com/embed/vSxGU-zlZMw"
+  },
+  
   {
     id: "mapping-vosges",
     title: "Mapping Vidéo — Haute Confiserie",
