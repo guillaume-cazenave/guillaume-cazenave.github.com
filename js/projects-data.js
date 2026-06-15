@@ -91,7 +91,7 @@ const PROJECTS = [
     category: "photo",
     featured: false,
     thumbnail: "img/proj/roche-thumb.jpg",
-    images: ["img/proj/roche-1.jpg","img/proj/roche-2.jpg","img/proj/roche-3.jpg","img/proj/roche-4.jpg","img/proj/roche-5.jpg","img/proj/roche-prod-1.jpg","img/proj/roche-prod-2.jpg","img/proj/roche-prod-3.jpg","img/proj/roche-prod-4.jpg","img/proj/roche-prod-5.jpg","img/proj/roche-prod-6.jpg","img/proj/roche-prod-7.jpg","img/proj/roche-prod-8.jpg","img/proj/roche-prod-9.jpg","img/proj/roche-prod-10.jpg","img/proj/roche-prod-11.jpg","img/proj/roche-prod-12.jpg","img/proj/roche-prod-13.jpg"],
+    images: ["img/proj/roche-1.jpg","img/proj/roche-2.jpg","img/proj/roche-3.jpg","img/proj/roche-4.jpg","img/proj/roche-5.jpg","img/proj/roche-prod-1.jpg","img/proj/roche-prod-2.jpg","img/proj/roche-prod-3.jpg","img/proj/roche-prod-4.jpg","img/proj/roche-prod-5.jpg","img/proj/roche-prod-7.jpg","img/proj/roche-prod-8.jpg","img/proj/roche-prod-9.jpg","img/proj/roche-prod-10.jpg","img/proj/roche-prod-11.jpg","img/proj/roche-prod-12.jpg","img/proj/roche-prod-13.jpg"],
     description: "Projet photo avec direction artistique complète, univers dédié à la roche. Conception du concept, shooting et post-production.",
     tags: ["Photoshop", "Lightroom", "Direction artistique"],
     year: "2026",
