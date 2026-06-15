@@ -117,7 +117,7 @@ const PROJECTS = [
     category: "3d",
     featured: false,
     thumbnail: "img/proj/GDEVELOPGAME.jpg",
-    images: ["img/proj/GDEVELOPGAME.jpg""img/proj/jeu-1.jpg", "img/proj/jeu-2.jpg", "img/proj/jeu-3.jpg", "img/proj/jeu-4.jpg"],
+    images: ["img/proj/GDEVELOPGAME.jpg", "img/proj/jeu-1.jpg", "img/proj/jeu-2.jpg", "img/proj/jeu-3.jpg", "img/proj/jeu-4.jpg"],
     description: "Conception et développement d'un jeu vidéo 3D sous GDevelop. Modélisation des assets, level design et intégration gameplay.",
     tags: ["GDevelop", "Blender", "Marvelous Designer", "Substance Painter"],
     year: "2026",
