@@ -62,7 +62,7 @@ const PROJECTS = [
     category: "3d",
     featured: true,
     thumbnail: "img/proj/illu3d-thumb.jpg",
-    images: ["img/proj/illu3d-1.jpg","img/proj/illu3d-2.jpg","img/proj/illu3d-3.jpg","img/proj/illu3d-4.jpg","img/proj/illu3d-5.jpg","img/proj/illu3d-6.jpg","img/proj/illu3d-7.jpg","img/proj/illu3d-8.jpg","img/proj/illu3d-9.jpg","img/proj/illu3d-10.jpg","img/proj/illu3d-11.jpg","img/proj/illu3d-12.jpg","img/proj/illu3d-13.jpg","img/proj/illu3d-14.jpg","img/proj/illu3d-15.jpg","img/proj/illu3d-16.jpg","img/proj/illu3d-17.jpg","img/proj/illu3d-18.jpg","img/proj/illu3d-19.jpg","img/proj/illu3d-20.jpg","img/proj/illu3d-21.jpg","img/proj/illu3d-22.jpg","img/proj/illu3d-23.jpg","img/proj/illu3d-24.jpg","img/proj/illu3d-25.jpg","img/proj/illu3d-26.jpg"],
+    images: ["img/proj/illu3d-3.jpg","img/proj/illu3d-4.jpg","img/proj/illu3d-5.jpg","img/proj/illu3d-6.jpg","img/proj/illu3d-7.jpg","img/proj/illu3d-8.jpg","img/proj/illu3d-9.jpg","img/proj/illu3d-10.jpg","img/proj/illu3d-11.jpg","img/proj/illu3d-12.jpg","img/proj/illu3d-13.jpg","img/proj/illu3d-14.jpg","img/proj/illu3d-15.jpg","img/proj/illu3d-16.jpg","img/proj/illu3d-17.jpg","img/proj/illu3d-18.jpg","img/proj/illu3d-19.jpg","img/proj/illu3d-20.jpg","img/proj/illu3d-21.jpg","img/proj/illu3d-22.jpg","img/proj/illu3d-23.jpg","img/proj/illu3d-24.jpg","img/proj/illu3d-25.jpg","img/proj/illu3d-26.jpg","img/proj/illu3d-1.jpg","img/proj/illu3d-2.jpg"],
     description: "Série d'une dizaine d'illustrations 3D réalisées sous Blender. Explorations créatives libres — scènes minimalistes, rendus stylisés et compositions abstraites.",
     tags: ["Blender", "Cycles", "Photoshop", "Marvelous Designer", "Substance Painter"],
     year: "2026",
