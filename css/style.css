@@ -51,29 +51,15 @@ h1#titre {
   font-size: 2vw;
   margin: 0;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
   line-height: 1;
   white-space: nowrap;
-  position: relative;
 }
 
-h1#titre::after {
-  content: 'Créatif';
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  font-family: 'ABCSynt', Arial, sans-serif;
-  font-size: 2vw;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+h1#titre:hover {
+  color: red;
+  text-decoration: line-through;
 }
-
-h1#titre:hover { color: transparent; }
-
-h1#titre:hover::after { opacity: 1; }
 
 /* Icônes — centrées verticalement, à droite */
 .icon-container {
