@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const h1 = document.getElementById('titre');
 
     h1.addEventListener('mouseover', () => {
-        h1.textContent = "Créatif."; // Change le texte au survol
-        h1.style.textDecoration = "line-through"; // Barrer le texte
+        h1.innerHTML = "Créatif.";
+        h1.style.textDecoration = "line-through";
     });
 
     h1.addEventListener('mouseout', () => {
-        h1.textContent = "Guillaume Cazenave"; // Restaure le texte original lorsque la souris quitte l'élément
-        h1.style.textDecoration = "none"; // Enlève le barré
+        h1.innerHTML = "Guillaume<br>Cazenave";
+        h1.style.textDecoration = "none";
     });
 });
