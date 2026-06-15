@@ -21,12 +21,12 @@ const PROJECTS = [
     type: "personnel",
     category: "video",
     featured: true,
-    thumbnail: "https://img.youtube.com/vi/TcUsRmjhRSY/maxresdefault.jpg",
-    images: ["https://www.youtube.com/embed/TcUsRmjhRSY"],
+    thumbnail: "https://img.youtube.com/vi/JV9_5gDm-E8/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/JV9_5gDm-E8"],
     description: "Clip concept vidéo sur le morceau 'Fidelio' de Fakemink. Effets visuels réalisés sous After Effects — transitions, compositing et color grading.",
     tags: ["After Effects", "Premiere Pro"],
     year: "2026",
-    link: "https://www.youtube.com/embed/TcUsRmjhRSY"
+    link: "https://www.youtube.com/embed/JV9_5gDm-E8"
   },
   {
     id: "addiktok",
