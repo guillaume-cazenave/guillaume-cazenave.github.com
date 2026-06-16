@@ -52,7 +52,11 @@ h1#titre {
   margin: 0;
   cursor: pointer;
   transition: color 0.3s ease, text-decoration 0.3s ease;
-  line-height: 1;
+  line-height: 1.2;
+  min-height: 2.4em; /* réserve la place pour 2 lignes toujours */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 h1#titre:hover {
