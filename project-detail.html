@@ -208,20 +208,41 @@
     // ── PAGE PROJET STANDARD ───────────────────────────────
     function isYT(url) { return url && url.indexOf('youtube.com/embed') !== -1; }
 
-    var slidesHTML = project.images.map(function(src, i) {
-      if (isYT(src)) {
-        return '<div class="slide-item slide-video" data-index="' + i + '">'
-          + '<iframe src="' + src + '" frameborder="0" allowfullscreen></iframe>'
-          + '</div>';
-      }
-      return '<img src="' + src + '" alt="' + project.title + '" loading="lazy" class="slider-img" data-index="' + i + '" style="cursor:zoom-in">';
-    }).join('');
+    function buildSlides(imgs, sliderId) {
+      return imgs.map(function(src, i) {
+        if (isYT(src)) {
+          return '<div class="slide-item slide-video" data-index="' + i + '">'
+            + '<iframe src="' + src + '" frameborder="0" allowfullscreen></iframe>'
+            + '</div>';
+        }
+        return '<img src="' + src + '" alt="' + project.title + '" loading="lazy" class="slider-img" data-slider="' + sliderId + '" data-index="' + i + '" style="cursor:zoom-in">';
+      }).join('');
+    }
 
-    var dotsHTML = project.images.length > 1
-      ? '<div class="slider-dots">' + project.images.map(function(_, i) {
-          return '<span class="dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></span>';
-        }).join('') + '</div>'
-      : '';
+    function buildDots(imgs, sliderId) {
+      return imgs.length > 1
+        ? '<div class="slider-dots">' + imgs.map(function(_, i) {
+            return '<span class="dot dot-' + sliderId + '" data-slider="' + sliderId + '"' + (i === 0 ? ' data-active="true"' : '') + ' data-index="' + i + '"></span>';
+          }).join('') + '</div>'
+        : '';
+    }
+
+    var slidesHTML = buildSlides(project.images, 'main');
+    var dotsHTML = buildDots(project.images, 'main');
+
+    var hasSecond = project.images2 && project.images2.length > 0;
+    var slider2HTML = '';
+    if (hasSecond) {
+      var slides2HTML = buildSlides(project.images2, 'second');
+      var dots2HTML = buildDots(project.images2, 'second');
+      slider2HTML = '<div class="slider-wrapper slider-wrapper-second">'
+        + '<div class="slider-label">Autre collection</div>'
+        + '<div class="slider-container">'
+        + '<button class="arrow left" data-slider="second">&#8249;</button>'
+        + '<div class="slider" id="slider-second">' + slides2HTML + '</div>'
+        + '<button class="arrow right" data-slider="second">&#8250;</button>'
+        + '</div>' + dots2HTML + '</div>';
+    }
 
     var descHTML = project.description.replace(/\n\n/g, '</p><p>');
     var tagsHTML = project.tags.map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
@@ -229,12 +250,12 @@
       ? '<a href="' + project.link + '" class="project-link" target="_blank">Voir le projet ↗</a>'
       : '';
 
-    container.innerHTML = '<div class="project-container">'
+    container.innerHTML = '<div class="project-container' + (hasSecond ? ' has-second-slider' : '') + '">'
       + '<div class="slider-wrapper">'
       + '<div class="slider-container">'
-      + '<button class="arrow left">&#8249;</button>'
+      + '<button class="arrow left" data-slider="main">&#8249;</button>'
       + '<div class="slider" id="slider">' + slidesHTML + '</div>'
-      + '<button class="arrow right">&#8250;</button>'
+      + '<button class="arrow right" data-slider="main">&#8250;</button>'
       + '</div>' + dotsHTML + '</div>'
       + '<div class="project-content">'
       + '<div class="project-meta">'
@@ -245,11 +266,12 @@
       + '<p>' + descHTML + '</p>'
       + '<div class="tags">' + tagsHTML + '</div>'
       + linkHTML
-      + '</div></div>';
+      + '</div></div>'
+      + slider2HTML;
 
-    // Dots slider
+    // Dots slider principal
     if (project.images.length > 1) {
-      var dots = document.querySelectorAll('.dot');
+      var dots = document.querySelectorAll('.dot-main');
       dots.forEach(function(dot) {
         dot.addEventListener('click', function() {
           window._sliderGoTo && window._sliderGoTo(parseInt(dot.dataset.index));
@@ -258,6 +280,25 @@
       window._onSlideChange = function(idx) {
         dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
       };
+
+      // marquer le premier dot actif
+      var firstDot = document.querySelector('.dot-main[data-active="true"]');
+      if (firstDot) firstDot.classList.add('active');
+    }
+
+    // Dots second slider
+    if (hasSecond && project.images2.length > 1) {
+      var dots2 = document.querySelectorAll('.dot-second');
+      dots2.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          window._sliderGoToSecond && window._sliderGoToSecond(parseInt(dot.dataset.index));
+        });
+      });
+      window._onSlideChangeSecond = function(idx) {
+        dots2.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      };
+      var firstDot2 = document.querySelector('.dot-second[data-active="true"]');
+      if (firstDot2) firstDot2.classList.add('active');
     }
 
     // Lightbox
@@ -275,10 +316,21 @@
       return '<span class="lb-dot' + (i === 0 ? ' active' : '') + '" data-pos="' + i + '"></span>';
     }).join('');
 
+    var activeImages = images;
+    function openLightboxFor(imgArray, idx) {
+      activeImages = imgArray;
+      var localIndexes = imgArray.map(function(s, i) { return isYT(s) ? null : i; }).filter(function(i) { return i !== null; });
+      lbDots.innerHTML = localIndexes.map(function(_, i) {
+        return '<span class="lb-dot' + (i === 0 ? ' active' : '') + '" data-pos="' + i + '"></span>';
+      }).join('');
+      imageIndexes = localIndexes;
+      openLightbox(idx);
+    }
+
     function openLightbox(idx) {
-      if (isYT(images[idx])) return;
+      if (isYT(activeImages[idx])) return;
       current = idx;
-      lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+      lbContent.innerHTML = '<img src="' + activeImages[current] + '" alt="' + project.title + '">';
       updateLbDots();
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -290,10 +342,10 @@
     }
     function lbGo(dir) {
       var next = current;
-      do { next = (next + dir + images.length) % images.length; }
-      while (isYT(images[next]) && next !== current);
+      do { next = (next + dir + activeImages.length) % activeImages.length; }
+      while (isYT(activeImages[next]) && next !== current);
       current = next;
-      lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+      lbContent.innerHTML = '<img src="' + activeImages[current] + '" alt="' + project.title + '">';
       updateLbDots();
     }
     function updateLbDots() {
@@ -302,7 +354,10 @@
     }
 
     document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('slider-img')) openLightbox(parseInt(e.target.dataset.index));
+      if (e.target.classList.contains('slider-img')) {
+        var sliderSrc = e.target.dataset.slider === 'second' ? project.images2 : project.images;
+        openLightboxFor(sliderSrc, parseInt(e.target.dataset.index));
+      }
     });
     lbClose.addEventListener('click', closeLightbox);
     lbPrev.addEventListener('click', function() { lbGo(-1); });
@@ -324,7 +379,7 @@
     lbDots.addEventListener('click', function(e) {
       if (e.target.classList.contains('lb-dot')) {
         current = imageIndexes[parseInt(e.target.dataset.pos)];
-        lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
+        lbContent.innerHTML = '<img src="' + activeImages[current] + '" alt="' + project.title + '">';
         updateLbDots();
       }
     });
