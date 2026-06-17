@@ -200,3 +200,31 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 @media screen and (max-width: 480px) {
   .reels-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Second slider (collection secondaire) ─ */
+.slider-wrapper-second {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 6%;
+}
+
+.slider-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+
+.has-second-slider {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .slider-wrapper-second {
+    padding: 0 20px;
+    margin-top: 30px;
+  }
+}
