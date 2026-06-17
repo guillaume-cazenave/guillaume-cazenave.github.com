@@ -1,50 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById("slider");
+  if (!slider) return;
+  const slides = slider.querySelectorAll("img, .slide-item");
+  if (!slides.length) return;
+  const prev = document.querySelector(".arrow.left");
+  const next = document.querySelector(".arrow.right");
+  let index = 0;
 
-  function initSlider(sliderEl, prevBtn, nextBtn, onChangeKey) {
-    if (!sliderEl) return null;
-    const slides = sliderEl.querySelectorAll("img, .slide-item");
-    if (!slides.length) return null;
-    let index = 0;
-
-    function updateSlide() {
-      const w = slides[0].clientWidth || sliderEl.clientWidth;
-      sliderEl.style.transform = `translateX(-${index * w}px)`;
-      if (typeof window[onChangeKey] === 'function') window[onChangeKey](index);
-    }
-
-    function goTo(idx) {
-      index = Math.max(0, Math.min(idx, slides.length - 1));
-      updateSlide();
-    }
-
-    if (nextBtn) nextBtn.addEventListener("click", () => { index = (index + 1) % slides.length; updateSlide(); });
-    if (prevBtn) prevBtn.addEventListener("click", () => { index = (index - 1 + slides.length) % slides.length; updateSlide(); });
-    window.addEventListener("resize", updateSlide);
-
-    let tx = 0;
-    sliderEl.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
-    sliderEl.addEventListener("touchend", e => {
-      const d = tx - e.changedTouches[0].clientX;
-      if (Math.abs(d) < 30) return;
-      index = d > 0 ? (index + 1) % slides.length : (index - 1 + slides.length) % slides.length;
-      updateSlide();
-    });
-
-    return goTo;
+  function updateSlide() {
+    const w = slides[0].clientWidth || slider.clientWidth;
+    slider.style.transform = `translateX(-${index * w}px)`;
+    if (typeof window._onSlideChange === 'function') window._onSlideChange(index);
   }
 
-  // Slider principal
-  const mainSlider = document.getElementById("slider");
-  const mainPrev = document.querySelector('.arrow.left[data-slider="main"]');
-  const mainNext = document.querySelector('.arrow.right[data-slider="main"]');
-  const goToMain = initSlider(mainSlider, mainPrev, mainNext, '_onSlideChange');
-  if (goToMain) window._sliderGoTo = goToMain;
+  window._sliderGoTo = idx => { index = Math.max(0, Math.min(idx, slides.length-1)); updateSlide(); };
+  if (next) next.addEventListener("click", () => { index = (index+1) % slides.length; updateSlide(); });
+  if (prev) prev.addEventListener("click", () => { index = (index-1+slides.length) % slides.length; updateSlide(); });
+  window.addEventListener("resize", updateSlide);
 
-  // Second slider (collection 2 par exemple)
-  const secondSlider = document.getElementById("slider-second");
-  const secondPrev = document.querySelector('.arrow.left[data-slider="second"]');
-  const secondNext = document.querySelector('.arrow.right[data-slider="second"]');
-  const goToSecond = initSlider(secondSlider, secondPrev, secondNext, '_onSlideChangeSecond');
-  if (goToSecond) window._sliderGoToSecond = goToSecond;
-
+  let tx = 0;
+  slider.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener("touchend", e => {
+    const d = tx - e.changedTouches[0].clientX;
+    if (Math.abs(d) < 30) return;
+    index = d > 0 ? (index+1)%slides.length : (index-1+slides.length)%slides.length;
+    updateSlide();
+  });
 });
