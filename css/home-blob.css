@@ -1,0 +1,52 @@
+/* ============================================================
+   HOME BLOB — bouton retour accueil, coin haut-gauche
+   Même technique de morphing organique que le menu burger
+   ============================================================ */
+
+.home-blob {
+  position: fixed;
+  top: 33px;
+  left: 30px;
+  width: 26px;
+  height: 26px;
+  z-index: 998;
+  cursor: pointer;
+  background-color: #ececee;
+  box-shadow: 0 0 12px 2px rgba(236,236,238,0.45),
+              0 0 4px 1px rgba(236,236,238,0.6);
+  animation: blob-morph 6s ease-in-out infinite,
+             blob-pulse 3s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1),
+              box-shadow 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.home-blob:hover {
+  transform: scale(1.35);
+  box-shadow: 0 0 20px 4px rgba(236,236,238,0.65),
+              0 0 8px 2px rgba(236,236,238,0.8);
+}
+
+@keyframes blob-morph {
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+  14%     { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  28%     { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
+  42%     { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
+  56%     { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
+  70%     { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
+  84%     { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+}
+
+@keyframes blob-pulse {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+@media screen and (max-width: 991px) {
+  .home-blob { top: 35px; left: 20px; width: 22px; height: 22px; }
+}
+
+@media screen and (max-width: 480px) {
+  .home-blob { top: 30px; left: 16px; width: 18px; height: 18px; }
+}
