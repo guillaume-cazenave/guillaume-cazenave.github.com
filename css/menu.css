@@ -1,6 +1,5 @@
 /* ============================================================
-   MENU BURGER — partagé sur toutes les pages
-   z-index élevé pour passer au-dessus du canvas
+   MENU BURGER — vitesse d'apparition augmentée
    ============================================================ */
 
 [type="checkbox"]:checked,
@@ -35,11 +34,11 @@
   left: 0;
   border-top: 2px solid #ececee;
   border-bottom: 2px solid #ececee;
-  transition: border-width 100ms 1500ms ease,
-              top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-              background-color 200ms ease,
-              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: border-width 80ms 500ms ease,
+              top 80ms 550ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 80ms 550ms cubic-bezier(0.23, 1, 0.32, 1),
+              background-color 150ms ease,
+              transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .menu-icon:checked + label:after,
@@ -54,10 +53,10 @@
   right: 4px;
   background-color: #ececee;
   margin-top: -1px;
-  transition: width 100ms 1750ms ease,
-              right 100ms 1750ms ease,
-              margin-top 100ms ease,
-              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: width 80ms 600ms ease,
+              right 80ms 600ms ease,
+              margin-top 80ms ease,
+              transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .menu-icon:checked + label:before {
@@ -66,11 +65,11 @@
   height: 2px;
   background-color: #ececee;
   border-width: 0;
-  transition: border-width 100ms 340ms ease,
-              top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              height 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              background-color 200ms 500ms ease,
-              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: border-width 80ms 120ms ease,
+              top 80ms 100ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 80ms 100ms cubic-bezier(0.23, 1, 0.32, 1),
+              background-color 150ms 180ms ease,
+              transform 150ms 550ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .menu-icon:checked + label:after {
@@ -78,10 +77,10 @@
   margin-top: 0;
   right: 0;
   transform: rotate(-45deg);
-  transition: width 100ms ease,
-              right 100ms ease,
-              margin-top 100ms 500ms ease,
-              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: width 80ms ease,
+              right 80ms ease,
+              margin-top 80ms 180ms ease,
+              transform 150ms 550ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* La bulle du menu */
@@ -94,16 +93,16 @@
   height: 80px;
   padding: 0;
   margin: 0;
-  z-index: 999;          /* au-dessus du canvas (z-index:0) */
+  z-index: 999;
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(109,109,109,.3);
   background-color: rgb(25,25,25);
   animation: border-transform 7s linear infinite;
-  transition: top 350ms 1100ms cubic-bezier(0.23,1,0.32,1),
-              right 350ms 1100ms cubic-bezier(0.23,1,0.32,1),
-              transform 250ms 1100ms ease,
-              width 650ms 400ms cubic-bezier(0.23,1,0.32,1),
-              height 650ms 400ms cubic-bezier(0.23,1,0.32,1);
+  transition: top 150ms 350ms cubic-bezier(0.23,1,0.32,1),
+              right 150ms 350ms cubic-bezier(0.23,1,0.32,1),
+              transform 120ms 350ms ease,
+              width 250ms 150ms cubic-bezier(0.23,1,0.32,1),
+              height 250ms 150ms cubic-bezier(0.23,1,0.32,1);
 }
 
 @keyframes border-transform {
@@ -123,11 +122,11 @@
   transform: translate(50%, -50%);
   width: 200%;
   height: 200%;
-  transition: top 350ms 700ms cubic-bezier(0.23,1,0.32,1),
-              right 350ms 700ms cubic-bezier(0.23,1,0.32,1),
-              transform 250ms 700ms ease,
-              width 750ms 1000ms cubic-bezier(0.23,1,0.32,1),
-              height 750ms 1000ms cubic-bezier(0.23,1,0.32,1);
+  transition: top 150ms 250ms cubic-bezier(0.23,1,0.32,1),
+              right 150ms 250ms cubic-bezier(0.23,1,0.32,1),
+              transform 120ms 250ms ease,
+              width 300ms 350ms cubic-bezier(0.23,1,0.32,1),
+              height 300ms 350ms cubic-bezier(0.23,1,0.32,1);
 }
 
 .nav ul {
@@ -155,13 +154,13 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(30px);
-  transition: all 250ms linear;
+  transition: all 150ms linear;
 }
 
-.nav ul li:nth-child(1) { transition-delay: 200ms; }
-.nav ul li:nth-child(2) { transition-delay: 150ms; }
-.nav ul li:nth-child(3) { transition-delay: 100ms; }
-.nav ul li:nth-child(4) { transition-delay:  50ms; }
+.nav ul li:nth-child(1) { transition-delay: 80ms; }
+.nav ul li:nth-child(2) { transition-delay: 60ms; }
+.nav ul li:nth-child(3) { transition-delay: 40ms; }
+.nav ul li:nth-child(4) { transition-delay: 20ms; }
 
 .nav ul li a {
   font-family: 'Montserrat', Arial, sans-serif;
@@ -173,7 +172,7 @@
   position: relative;
   color: #ececee;
   text-decoration: none;
-  transition: all 250ms linear;
+  transition: all 150ms linear;
 }
 
 .nav ul li a:hover { color: #3e3e3e; }
@@ -188,7 +187,7 @@
   width: 0;
   left: 0;
   background-color: #ffffff;
-  transition: width 250ms linear;
+  transition: width 150ms linear;
 }
 
 .nav ul li a:hover:after { width: 100%; }
@@ -198,13 +197,13 @@
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 350ms ease, transform 250ms ease;
+  transition: opacity 200ms ease, transform 150ms ease;
 }
 
-.menu-icon:checked ~ .nav ul li:nth-child(1) { transition-delay: 1400ms; }
-.menu-icon:checked ~ .nav ul li:nth-child(2) { transition-delay: 1480ms; }
-.menu-icon:checked ~ .nav ul li:nth-child(3) { transition-delay: 1560ms; }
-.menu-icon:checked ~ .nav ul li:nth-child(4) { transition-delay: 1640ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(1) { transition-delay: 400ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(2) { transition-delay: 440ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(3) { transition-delay: 480ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(4) { transition-delay: 520ms; }
 
 /* Responsive */
 @media screen and (max-width: 991px) {
