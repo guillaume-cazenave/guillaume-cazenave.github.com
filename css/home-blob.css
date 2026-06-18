@@ -1,19 +1,19 @@
 /* ============================================================
    HOME BLOB — bouton retour accueil, coin haut-gauche
-   Même technique de morphing organique que le menu burger
+   Aligné avec le menu burger (même hauteur, même taille)
    ============================================================ */
 
 .home-blob {
   position: fixed;
   top: 33px;
   left: 30px;
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   z-index: 998;
   cursor: pointer;
   background-color: #ececee;
-  box-shadow: 0 0 12px 2px rgba(236,236,238,0.45),
-              0 0 4px 1px rgba(236,236,238,0.6);
+  box-shadow: 0 0 14px 3px rgba(236,236,238,0.45),
+              0 0 5px 1px rgba(236,236,238,0.6);
   animation: blob-morph 6s ease-in-out infinite,
              blob-pulse 3s ease-in-out infinite;
   transition: transform 0.3s cubic-bezier(0.23,1,0.32,1),
@@ -23,9 +23,9 @@
 }
 
 .home-blob:hover {
-  transform: scale(1.35);
-  box-shadow: 0 0 20px 4px rgba(236,236,238,0.65),
-              0 0 8px 2px rgba(236,236,238,0.8);
+  transform: scale(1.25);
+  box-shadow: 0 0 22px 5px rgba(236,236,238,0.65),
+              0 0 9px 2px rgba(236,236,238,0.8);
 }
 
 @keyframes blob-morph {
@@ -44,9 +44,9 @@
 }
 
 @media screen and (max-width: 991px) {
-  .home-blob { top: 35px; left: 20px; width: 22px; height: 22px; }
+  .home-blob { top: 35px; left: 18px; width: 32px; height: 32px; }
 }
 
 @media screen and (max-width: 480px) {
-  .home-blob { top: 30px; left: 16px; width: 18px; height: 18px; }
+  .home-blob { top: 30px; left: 14px; width: 26px; height: 26px; }
 }

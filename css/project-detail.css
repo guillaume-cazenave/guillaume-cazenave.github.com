@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Montserrat', Arial, sans-serif; color: #ececee; overflow-x: hidden; }
-.back-btn { position: fixed; top: 24px; left: 24px; color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; transition: color 0.25s; z-index: 20; }
+.back-btn { position: fixed; top: 88px; left: 30px; color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; transition: color 0.25s; z-index: 20; }
 .back-btn:hover { color: #fff; }
 .project-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 80px 40px 40px; gap: 60px; max-width: 1400px; margin: 0 auto; }
 .slider-wrapper { flex: 1; min-width: 0; }
@@ -27,7 +27,7 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 .not-found { text-align: center; color: rgba(255,255,255,0.4); padding: 60px; }
 .not-found a { color: #fff; text-decoration: underline; }
 @media screen and (max-width: 900px) { .project-container { flex-direction: column; padding: 100px 20px 40px; gap: 30px; align-items: flex-start; } .slider-wrapper, .video-wrapper { width: 100%; } .project-content { max-width: 100%; padding: 0; } }
-@media screen and (max-width: 500px) { .back-btn { top: 16px; left: 16px; font-size: 0.7rem; } .project-container { padding-top: 80px; } .arrow { font-size: 2.8rem; } }
+@media screen and (max-width: 500px) { .back-btn { top: 78px; left: 18px; font-size: 0.7rem; } .project-container { padding-top: 80px; } .arrow { font-size: 2.8rem; } }
 
 /* ── Lightbox ───────────────────────────── */
 .lightbox {
