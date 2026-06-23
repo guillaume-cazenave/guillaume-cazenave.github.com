@@ -1,3 +1,8 @@
+@keyframes blur-in {
+  0%   { filter: blur(12px); opacity: 0; letter-spacing: 0.3em; }
+  100% { filter: blur(0);    opacity: 1; letter-spacing: normal; }
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
@@ -144,6 +149,7 @@ html, body {
   line-height: 1;
   margin-bottom: 28px;
   letter-spacing: -0.02em;
+  animation: blur-in 1s 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .about-intro {
