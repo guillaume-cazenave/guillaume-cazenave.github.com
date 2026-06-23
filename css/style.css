@@ -1,3 +1,8 @@
+@keyframes blur-in {
+  0%   { filter: blur(12px); opacity: 0; letter-spacing: 0.3em; }
+  100% { filter: blur(0);    opacity: 1; letter-spacing: normal; }
+}
+
 @font-face {
   font-family: 'ABCSynt';
   src: url('../font/ABCSynt-RegularTurbo.otf') format('opentype');
@@ -84,7 +89,11 @@ h1#titre:hover {
   transition: color 0.3s ease;
   display: block;
   line-height: 1;
+  animation: blur-in 1s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
+
+.icon-link:nth-child(1) { animation-delay: 0.2s; }
+.icon-link:nth-child(2) { animation-delay: 0.35s; }
 
 .icon-link:hover { color: red; }
 
