@@ -190,8 +190,9 @@ html, body {
   font-weight: 800;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.3);
-  min-width: 40px;
+  min-width: 80px;
   padding-top: 3px;
+  white-space: nowrap;
 }
 
 .tl-content strong {

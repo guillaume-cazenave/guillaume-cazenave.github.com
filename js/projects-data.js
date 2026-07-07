@@ -172,7 +172,7 @@ const PROJECTS = [
     category: "photo",
     featured: false,
     thumbnail: "img/proj/paysage-thumb.jpg",
-    images: ["img/proj/paysage-thumb.jpg", "img/proj/illu3d-2.jpg", "img/proj/illu3d-3.jpg"],
+    images: ["img/proj/paysage-1.jpg", "img/proj/paysage-2.jpg", "img/proj/paysage-3.jpg", "img/proj/paysage-4.jpg", "img/proj/paysage-5.jpg", "img/proj/paysage-6.jpg", "img/proj/paysage-7.jpg", "img/proj/paysage-8.jpg", "img/proj/paysage-9.jpg", "img/proj/paysage-10.jpg", "img/proj/paysage-11.jpg", "img/proj/paysage-12.jpg", "img/proj/paysage-13.jpg", "img/proj/paysage-14.jpg", "img/proj/paysage-15.jpg", "img/proj/paysage-16.jpg", "img/proj/paysage-17.jpg", "img/proj/paysage-18.jpg", "img/proj/paysage-19.jpg", "img/proj/paysage-20.jpg", "img/proj/paysage-21.jpg", "img/proj/paysage-22.jpg", "img/proj/paysage-23.jpg", "img/proj/paysage-24.jpg", "img/proj/paysage-25.jpg", "img/proj/paysage-26.jpg", "img/proj/paysage-27.jpg", "img/proj/paysage-28.jpg", "img/proj/paysage-29.jpg", "img/proj/paysage-30.jpg", "img/proj/paysage-31.jpg", "img/proj/paysage-32.jpg", "img/proj/paysage-33.jpg", "img/proj/paysage-34.jpg", "img/proj/paysage-35.jpg", "img/proj/paysage-36.jpg"],
     description: "Plans et photos de paysages captés en vacances. Travail de color grading cinématographique et retouche photographique.",
     tags: ["Premiere Pro", "Photoshop", "Lightroom"],
     year: "2026",

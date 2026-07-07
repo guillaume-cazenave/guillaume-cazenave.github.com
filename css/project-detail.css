@@ -190,13 +190,18 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
   overflow: hidden;
   border-radius: 8px;
   background: #000;
+  position: relative;
 }
 
 .reel-item iframe {
   width: 100%;
-  height: 100%;
+  /* Iframe plus haute que le conteneur : le bandeau TikTok du bas est masqué */
+  height: calc(100% + 90px);
   border: none;
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @media screen and (max-width: 768px) {
