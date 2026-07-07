@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const next = document.querySelector(".arrow.right");
   let index = 0;
 
+  // Cacher les flèches s'il n'y a qu'un seul élément
+  if (slides.length <= 1) {
+    if (prev) prev.style.display = 'none';
+    if (next) next.style.display = 'none';
+  }
+
   function updateSlide() {
     const w = slides[0].clientWidth || slider.clientWidth;
     slider.style.transform = `translateX(-${index * w}px)`;

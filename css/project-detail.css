@@ -1,3 +1,8 @@
+@keyframes blur-in {
+  0%   { filter: blur(12px); opacity: 0; }
+  100% { filter: blur(0);    opacity: 1; }
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Montserrat', Arial, sans-serif; color: #ececee; overflow-x: hidden; }
 .back-btn { position: fixed; top: 24px; left: 24px; color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; transition: color 0.25s; z-index: 20; }
@@ -18,9 +23,9 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 .project-meta { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
 .project-year { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 700; letter-spacing: 0.1em; }
 .project-category { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em; border: 1px solid rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 2px; color: rgba(255,255,255,0.55); }
-.project-content h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
-.project-content p { font-size: 1rem; line-height: 1.7; color: rgba(236,236,238,0.7); }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.project-content h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; animation: blur-in 0.9s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.project-content p { font-size: 1rem; line-height: 1.7; color: rgba(236,236,238,0.7); animation: blur-in 0.9s 0.15s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; animation: blur-in 0.9s 0.25s cubic-bezier(0.23, 1, 0.32, 1) both; }
 .tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); padding: 4px 12px; border-radius: 2px; color: rgba(236,236,238,0.6); }
 .project-link { display: inline-block; margin-top: 28px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; transition: border-color 0.2s; }
 .project-link:hover { border-color: #fff; }
