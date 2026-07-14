@@ -192,6 +192,33 @@ const PROJECTS = [
     link: ""
   },
 
+  {
+    id: "showreel-2025",
+    title: "Showreel 2025",
+    type: "personnel",
+    category: "video",
+    featured: false,
+    thumbnail: "https://img.youtube.com/vi/-ltsH9sSv3Y/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/-ltsH9sSv3Y"],
+    description: "Showreel réalisé dans le cadre d'un cours de projet professionnel, mettant en valeur les différents projets réalisés au cours de l'année 2025.",
+    tags: ["Premiere Pro", "After Effects", "Montage"],
+    year: "2025",
+    link: ""
+  },
+  {
+    id: "mini-clip-3d",
+    title: "Mini Clip Concept — Full 3D",
+    type: "personnel",
+    category: "3d",
+    featured: false,
+    thumbnail: "https://img.youtube.com/vi/exJ1s8MsEIQ/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/exJ1s8MsEIQ"],
+    description: "Clip concept réalisé entièrement en 3D. Projet d'expérimentation mêlant modélisation, simulation textile, texturing et montage.",
+    tags: ["Blender", "Marvelous Designer", "Substance Painter", "Premiere Pro"],
+    year: "2025",
+    link: ""
+  },
+
   // ── CLIENT ─────────────────────────────────────────────────
 
   {
