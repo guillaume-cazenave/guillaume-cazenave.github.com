@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'ABCSynt';
+  src: url('../font/ABCSynt-RegularTurbo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes blur-in {
   0%   { filter: blur(12px); opacity: 0; letter-spacing: 0.3em; }
   100% { filter: blur(0);    opacity: 1; letter-spacing: normal; }
@@ -12,7 +19,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #000;
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
@@ -119,7 +126,7 @@ h3 {
 }
 
 .card-info h1 {
-  font-family: "Playfair Display", serif;
+  font-family: 'ABCSynt', 'Montserrat', Arial, sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 2.5rem);
   font-weight: 700;
   text-shadow: rgba(0,0,0,.5) 0 10px 10px;
