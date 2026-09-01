@@ -26,7 +26,7 @@ p { line-height: 1.5em; }
 h3 {
   font-size: clamp(24px, 6vw, 5rem);
   color: #fff;
-  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, 'Anton', 'Oswald', 'Haettenschweiler', 'Arial Narrow Bold', 'Roboto Condensed', sans-serif;
   margin-bottom: 0.4em;
   line-height: 1.1;
   animation: blur-in 1s cubic-bezier(0.23, 1, 0.32, 1) both;
@@ -127,7 +127,6 @@ h3 {
 
 /* ── Responsive ─────────────────────────── */
 @media screen and (max-width: 991px) {
-  .nav { right: 30px; }
 }
 
 @media screen and (max-width: 768px) {
