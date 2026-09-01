@@ -128,7 +128,8 @@ h3 {
 .card-info h1 {
   font-family: 'ABCSynt', 'Montserrat', Arial, sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 2.5rem);
-  font-weight: 700;
+  font-weight: normal;
+  letter-spacing: 0.02em;
   text-shadow: rgba(0,0,0,.5) 0 10px 10px;
 }
 
