@@ -1,0 +1,156 @@
+/* ============================================================
+   SYSTÈME DE THÈME — mode nuit (défaut) / mode jour
+   ============================================================ */
+
+:root {
+  --bg:            #000000;
+  --bg-soft:       #111111;
+  --text:          #ececee;
+  --text-dim:      rgba(236,236,238,0.65);
+  --text-faint:    rgba(255,255,255,0.35);
+  --border:        rgba(255,255,255,0.15);
+  --border-soft:   rgba(255,255,255,0.08);
+  --surface:       rgba(255,255,255,0.06);
+  --overlay:       rgba(0,0,0,0.45);
+  --accent:        #ff2d2d;
+  --menu-bg:       rgb(25,25,25);
+  --shadow:        rgba(0,0,0,0.6);
+}
+
+html[data-theme="light"] {
+  --bg:            #ffffff;
+  --bg-soft:       #f4f4f4;
+  --text:          #111111;
+  --text-dim:      rgba(17,17,17,0.68);
+  --text-faint:    rgba(0,0,0,0.38);
+  --border:        rgba(0,0,0,0.15);
+  --border-soft:   rgba(0,0,0,0.08);
+  --surface:       rgba(0,0,0,0.05);
+  --overlay:       rgba(0,0,0,0.30);
+  --accent:        #e01b1b;
+  --menu-bg:       #f0f0f0;
+  --shadow:        rgba(0,0,0,0.18);
+}
+
+/* Transition douce au changement de thème */
+html, body {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Bouton toggle ─────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 60px;
+  left: 30px;
+  z-index: 998;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0;
+  transition: transform 0.25s cubic-bezier(0.23,1,0.32,1),
+              background 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.12);
+  border-color: var(--text);
+}
+
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+html[data-theme="light"] .theme-toggle .icon-sun  { display: block; }
+html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+@media screen and (max-width: 768px) {
+  .theme-toggle { top: 55px; left: 18px; width: 32px; height: 32px; font-size: 13px; }
+}
+
+/* ── Overrides globaux basés sur les variables ── */
+body { background-color: var(--bg); color: var(--text); }
+
+/* Menu burger */
+.nav { background-color: var(--menu-bg); }
+.menu-icon:checked + label:before,
+.menu-icon:not(:checked) + label:before { border-color: var(--text); }
+.menu-icon:checked + label:before,
+.menu-icon:checked + label:after,
+.menu-icon:not(:checked) + label:after { background-color: var(--text); }
+.nav ul li a { color: var(--text); }
+.nav ul li a:after { background-color: var(--text); }
+
+/* Page projets */
+.filter-btn { color: var(--text); border-color: var(--border); }
+.filter-btn:hover, .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.grid-item { background-color: var(--bg-soft); }
+.grid-title, .grid-info { color: #ececee; }
+.empty-msg { color: var(--text-faint); }
+.filter-separator { background: var(--border); }
+
+/* Page détail projet */
+.back-btn { color: var(--text-dim); }
+.back-btn:hover { color: var(--text); }
+.project-content h1 { color: var(--text); }
+.project-content p { color: var(--text-dim); }
+.project-year { color: var(--text-faint); }
+.project-category { color: var(--text-dim); border-color: var(--border); }
+.tag { background: var(--surface); border-color: var(--border-soft); color: var(--text-dim); }
+.project-link { color: var(--text); border-bottom-color: var(--border); }
+.project-link:hover { border-bottom-color: var(--text); }
+.arrow { color: var(--text-dim); }
+.arrow:hover { color: var(--text); }
+.dot { background: var(--border); }
+.dot.active { background: var(--text); }
+.not-found { color: var(--text-faint); }
+.not-found a { color: var(--text); }
+.slider img { background: var(--bg-soft); }
+
+/* Page à propos */
+.about-right h1 { color: var(--text); }
+.about-intro { color: var(--text-dim); }
+.about-intro strong { color: var(--text); }
+.about-tag { color: var(--text-faint); }
+.about-section h2 { color: var(--text-faint); border-bottom-color: var(--border-soft); }
+.tl-year { color: var(--text-faint); }
+.tl-content strong { color: var(--text); }
+.tl-content p { color: var(--text-dim); }
+.skill-group-title { color: var(--text-dim); }
+.skill-tag { background: var(--surface); border-color: var(--border-soft); color: var(--text-dim); }
+.soft-item { color: var(--text-dim); }
+.social-link { color: var(--text-dim); border-bottom-color: var(--border-soft); }
+.social-link:hover { color: var(--text); }
+.social-link i { color: var(--text-faint); }
+.cv-btn { background: var(--text); color: var(--bg); }
+.about-photo-wrap { border-color: var(--border); }
+
+/* Page catégories */
+h3 { color: var(--text); }
+
+/* Page Addik'Tok */
+.addiktok-header h1 { color: var(--text); }
+.addiktok-header p { color: var(--text-dim); }
+
+/* Lightbox garde toujours un fond sombre */
+.lightbox { background: rgba(0,0,0,0.95); }
+.lightbox-close, .lightbox-arrow { color: rgba(255,255,255,0.7); }
+.lightbox-close:hover, .lightbox-arrow:hover { color: #fff; }
+
+/* Accueil */
+h1#titre { color: var(--text); }
+h1#titre:hover { color: var(--accent); }
+.icon-link { color: var(--text); }
+.icon-link:hover { color: var(--accent); }
+#container { background-color: var(--bg); }
+
+/* Logos logiciels : inversés en mode jour pour rester lisibles */
+html[data-theme="light"] .soft-logo { filter: invert(1) hue-rotate(180deg); }

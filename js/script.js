@@ -2,7 +2,7 @@ var NUM_PARTICLES = ( ( ROWS = 100 ) * ( COLS = 300 ) ),
     THICKNESS = Math.pow( 80, 2 ),
     SPACING = 3,
     MARGIN = 100,
-    COLOR = 220,
+    COLOR = ( document.documentElement.getAttribute('data-theme') === 'light' ? 30 : 220 ),
     DRAG = 0.95,
     EASE = 0.25,
     
@@ -161,3 +161,8 @@ function step() {
 
 init();
 step();
+
+// Inverser la couleur des particules au changement de thème
+window._onThemeChange = function(isLight) {
+  COLOR = isLight ? 30 : 220;
+};
