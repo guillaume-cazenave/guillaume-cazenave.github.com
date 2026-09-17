@@ -77,10 +77,20 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 4/3;
-  background-size: cover;
-  background-position: center;
   background-color: #111;
 }
+
+/* Calque visuel : zoome au survol sans jamais se répéter */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.55s cubic-bezier(0.23,1,0.32,1);
+}
+
+.grid-item:hover .grid-bg { transform: scale(1.06); }
 
 .grid-overlay {
   position: absolute;
@@ -114,12 +124,6 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 
 .grid-item:hover .grid-info { opacity: 1; transform: translateY(0); }
 
-/* Léger zoom du visuel au survol */
-.grid-item {
-  transition: background-size 0.5s cubic-bezier(0.23,1,0.32,1);
-  background-size: 100%;
-}
-.grid-item:hover { background-size: 105%; }
 
 @media (hover: none) {
   .grid-info { opacity: 1; transform: translateY(0); }

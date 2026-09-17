@@ -64,8 +64,7 @@
       filtered.forEach(p => {
         const item = document.createElement('div');
         item.className = 'grid-item';
-        item.style.backgroundImage = `url('${p.thumbnail}')`;
-        item.innerHTML = `<div class="grid-overlay"></div><div class="grid-info"><span class="grid-title">${p.title}</span><span class="grid-year">${p.year}</span></div>`;
+        item.innerHTML = `<div class="grid-bg" style="background-image: url('${p.thumbnail}')"></div><div class="grid-overlay"></div><div class="grid-info"><span class="grid-title">${p.title}</span><span class="grid-year">${p.year}</span></div>`;
         item.addEventListener('click', () => window.location.href = p.addiktok ? 'addiktok.html' : `project-detail.html?id=${p.id}`);
         grid.appendChild(item);
       });
