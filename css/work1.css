@@ -85,11 +85,20 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 .grid-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  /* Dégradé uniquement en bas : l'image reste lumineuse, le texte reste lisible */
+  background: linear-gradient(to bottom,
+              rgba(0,0,0,0.05) 0%,
+              rgba(0,0,0,0.05) 45%,
+              rgba(0,0,0,0.55) 100%);
   transition: background 0.35s ease;
 }
 
-.grid-item:hover .grid-overlay { background: rgba(0,0,0,0.65); }
+.grid-item:hover .grid-overlay {
+  background: linear-gradient(to bottom,
+              rgba(0,0,0,0) 0%,
+              rgba(0,0,0,0) 40%,
+              rgba(0,0,0,0.65) 100%);
+}
 
 .grid-info {
   position: absolute;
@@ -105,9 +114,21 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
 
 .grid-item:hover .grid-info { opacity: 1; transform: translateY(0); }
 
+/* Léger zoom du visuel au survol */
+.grid-item {
+  transition: background-size 0.5s cubic-bezier(0.23,1,0.32,1);
+  background-size: 100%;
+}
+.grid-item:hover { background-size: 105%; }
+
 @media (hover: none) {
   .grid-info { opacity: 1; transform: translateY(0); }
-  .grid-overlay { background: rgba(0,0,0,0.55); }
+  .grid-overlay {
+    background: linear-gradient(to bottom,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0) 40%,
+                rgba(0,0,0,0.6) 100%);
+  }
 }
 
 .grid-title {
@@ -115,6 +136,7 @@ html, body { width: 100%; min-height: 100%; background: #000; font-family: 'Mont
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8);
 }
 
 
