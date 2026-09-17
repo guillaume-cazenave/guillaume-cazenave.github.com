@@ -3,6 +3,19 @@ const PROJECTS = [
   // ── MIS EN AVANT (featured: true = apparaît en premier) ────
 
   {
+    id: "sable-beton",
+    title: "Sable & Béton",
+    type: "personnel",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/biarritz-thumb.jpg",
+    images: ["img/proj/biarritz-1.jpg", "img/proj/biarritz-2.jpg", "img/proj/biarritz-3.jpg", "img/proj/biarritz-4.jpg", "img/proj/biarritz-5.jpg", "img/proj/biarritz-6.jpg", "img/proj/biarritz-7.jpg", "img/proj/biarritz-8.jpg", "img/proj/biarritz-9.jpg", "img/proj/biarritz-10.jpg", "img/proj/biarritz-11.jpg"],
+    description: "Série de street photography réalisée entre Biarritz et Bordeaux. D'un côté les surfeurs au coucher de soleil sur la Grande Plage, de l'autre les sessions skate et BMX sur les quais bordelais.",
+    tags: ["Photographie", "Lightroom", "Street"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "clip-realo-run",
     title: "Clip Concept — Run (Realo)",
     type: "personnel",
@@ -219,19 +232,6 @@ const PROJECTS = [
     link: ""
   },
 
-  {
-    id: "sable-beton",
-    title: "Sable & Béton",
-    type: "personnel",
-    category: "photo",
-    featured: false,
-    thumbnail: "img/proj/biarritz-thumb.jpg",
-    images: ["img/proj/biarritz-1.jpg", "img/proj/biarritz-2.jpg", "img/proj/biarritz-3.jpg", "img/proj/biarritz-4.jpg", "img/proj/biarritz-5.jpg", "img/proj/biarritz-6.jpg", "img/proj/biarritz-7.jpg", "img/proj/biarritz-8.jpg", "img/proj/biarritz-9.jpg", "img/proj/biarritz-10.jpg", "img/proj/biarritz-11.jpg"],
-    description: "Série de street photography réalisée entre Biarritz et Bordeaux. D'un côté les surfeurs au coucher de soleil sur la Grande Plage, de l'autre les sessions skate et BMX sur les quais bordelais.\n\nUn travail sur la lumière rasante de fin de journée et les instants suspendus, entre l'océan et le béton.",
-    tags: ["Photographie", "Lightroom", "Street"],
-    year: "2025",
-    link: ""
-  },
 
   // ── CLIENT ─────────────────────────────────────────────────
 
