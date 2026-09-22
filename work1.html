@@ -65,6 +65,18 @@
         const item = document.createElement('div');
         item.className = 'grid-item';
         item.innerHTML = `<div class="grid-bg" style="background-image: url('${p.thumbnail}')"></div><div class="grid-overlay"></div><div class="grid-info"><span class="grid-title">${p.title}</span><span class="grid-year">${p.year}</span></div>`;
+
+        // Fallback YouTube : si maxresdefault n'existe pas (image vide 120x90), on passe sur hqdefault
+        if (p.thumbnail.indexOf('maxresdefault') !== -1) {
+          const bg = item.querySelector('.grid-bg');
+          const test = new Image();
+          test.onload = function() {
+            if (test.naturalWidth <= 120) {
+              bg.style.backgroundImage = `url('${p.thumbnail.replace('maxresdefault', 'hqdefault')}')`;
+            }
+          };
+          test.src = p.thumbnail;
+        }
         item.addEventListener('click', () => window.location.href = p.addiktok ? 'addiktok.html' : `project-detail.html?id=${p.id}`);
         grid.appendChild(item);
       });
