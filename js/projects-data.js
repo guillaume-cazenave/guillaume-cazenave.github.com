@@ -17,7 +17,7 @@ const PROJECTS = [
   },
   {
     id: "paysages-vacances",
-    title: "Paysages — Color Grading",
+    title: "Photo Alpes 2026",
     type: "personnel",
     category: "photo",
     featured: true,
@@ -25,6 +25,19 @@ const PROJECTS = [
     images: ["img/proj/paysage-1.jpg", "img/proj/paysage-2.jpg", "img/proj/paysage-3.jpg", "img/proj/paysage-4.jpg", "img/proj/paysage-5.jpg", "img/proj/paysage-6.jpg", "img/proj/paysage-7.jpg", "img/proj/paysage-8.jpg", "img/proj/paysage-9.jpg", "img/proj/paysage-10.jpg", "img/proj/paysage-11.jpg", "img/proj/paysage-17.jpg", "img/proj/paysage-18.jpg", "img/proj/paysage-19.jpg", "img/proj/paysage-20.jpg", "img/proj/paysage-21.jpg", "img/proj/paysage-22.jpg", "img/proj/paysage-23.jpg", "img/proj/paysage-24.jpg", "img/proj/paysage-25.jpg", "img/proj/paysage-26.jpg", "img/proj/paysage-27.jpg", "img/proj/paysage-28.jpg", "img/proj/paysage-29.jpg", "img/proj/paysage-30.jpg", "img/proj/paysage-31.jpg", "img/proj/paysage-32.jpg", "img/proj/paysage-33.jpg", "img/proj/paysage-34.jpg", "img/proj/paysage-35.jpg", "img/proj/paysage-36.jpg"],
     description: "Plans et photos de paysages captés en vacances. Travail de color grading cinématographique et retouche photographique.",
     tags: ["Premiere Pro", "Photoshop", "Lightroom"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "video-alpes-2026",
+    title: "Vidéo Alpes 2026",
+    type: "personnel",
+    category: "video",
+    featured: true,
+    thumbnail: "https://img.youtube.com/vi/HoZjNxVHwFg/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/HoZjNxVHwFg"],
+    description: "Edit d'un week-end dans les Alpes en mai 2026, monté sur le morceau « Alien Blues » de Vundabar.",
+    tags: ["Premiere Pro", "Montage", "Color grading"],
     year: "2026",
     link: ""
   },
