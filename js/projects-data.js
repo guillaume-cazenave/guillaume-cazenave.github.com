@@ -3,6 +3,19 @@ const PROJECTS = [
   // ── MIS EN AVANT (featured: true = apparaît en premier) ────
 
   {
+    id: "zintrie-party",
+    title: "La Zintrie Party",
+    type: "client",
+    category: "video",
+    featured: true,
+    thumbnail: "https://img.youtube.com/vi/XI90eGuRIwM/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/XI90eGuRIwM"],
+    description: "Vidéo review de la soirée du 19 septembre, avec les sets de KŌMA, Neffa-T et Azogial. Format court, monté sur « Glow in the Dark » de Skepta.",
+    tags: ["Premiere Pro", "Montage", "Tournage"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "sable-beton",
     title: "Sable & Béton",
     type: "personnel",
