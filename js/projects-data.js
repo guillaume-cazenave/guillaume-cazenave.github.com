@@ -16,6 +16,19 @@ const PROJECTS = [
     link: ""
   },
   {
+    id: "zintrie-photos",
+    title: "La Zintrie Party — Photos",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/zintrie-thumb.jpg",
+    images: ["img/proj/zintrie-1.jpg", "img/proj/zintrie-2.jpg", "img/proj/zintrie-3.jpg", "img/proj/zintrie-4.jpg", "img/proj/zintrie-5.jpg", "img/proj/zintrie-6.jpg", "img/proj/zintrie-7.jpg", "img/proj/zintrie-8.jpg", "img/proj/zintrie-9.jpg", "img/proj/zintrie-10.jpg", "img/proj/zintrie-11.jpg", "img/proj/zintrie-12.jpg", "img/proj/zintrie-13.jpg", "img/proj/zintrie-14.jpg", "img/proj/zintrie-15.jpg", "img/proj/zintrie-16.jpg", "img/proj/zintrie-17.jpg"],
+    description: "Reportage photo de la soirée du 19 septembre, aux côtés des sets de KŌMA, Neffa-T et Azogial.",
+    tags: ["Photographie", "Lightroom", "Événementiel"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "sable-beton",
     title: "Sable & Béton",
     type: "personnel",
