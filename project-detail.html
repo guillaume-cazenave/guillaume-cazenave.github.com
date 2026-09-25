@@ -93,11 +93,17 @@
 
     // ── PAGE PROJET STANDARD ───────────────────────────────
     function isYT(url) { return url && url.indexOf('youtube.com/embed') !== -1; }
+    function isMP4(url) { return url && url.slice(-4).toLowerCase() === '.mp4'; }
 
     var slidesHTML = project.images.map(function(src, i) {
       if (isYT(src)) {
         return '<div class="slide-item slide-video" data-index="' + i + '">'
           + '<iframe src="' + src + '" frameborder="0" allowfullscreen></iframe>'
+          + '</div>';
+      }
+      if (isMP4(src)) {
+        return '<div class="slide-item slide-mp4" data-index="' + i + '">'
+          + '<video src="' + src + '" controls playsinline preload="metadata"></video>'
           + '</div>';
       }
       return '<img src="' + src + '" alt="' + project.title + '" loading="lazy" class="slider-img" data-index="' + i + '" style="cursor:zoom-in">';
@@ -148,7 +154,7 @@
 
     // Lightbox
     var images = project.images;
-    var imageIndexes = images.map(function(s, i) { return isYT(s) ? null : i; }).filter(function(i) { return i !== null; });
+    var imageIndexes = images.map(function(s, i) { return (isYT(s) || isMP4(s)) ? null : i; }).filter(function(i) { return i !== null; });
     var lightbox   = document.getElementById('lightbox');
     var lbContent  = document.getElementById('lightbox-content');
     var lbDots     = document.getElementById('lightbox-dots');
@@ -162,7 +168,7 @@
     }).join('');
 
     function openLightbox(idx) {
-      if (isYT(images[idx])) return;
+      if (isYT(images[idx]) || isMP4(images[idx])) return;
       current = idx;
       lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
       updateLbDots();
@@ -177,7 +183,7 @@
     function lbGo(dir) {
       var next = current;
       do { next = (next + dir + images.length) % images.length; }
-      while (isYT(images[next]) && next !== current);
+      while ((isYT(images[next]) || isMP4(images[next])) && next !== current);
       current = next;
       lbContent.innerHTML = '<img src="' + images[current] + '" alt="' + project.title + '">';
       updateLbDots();

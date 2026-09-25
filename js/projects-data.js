@@ -224,7 +224,7 @@ const PROJECTS = [
     category: "design",
     featured: false,
     thumbnail: "img/proj/azap-c2-6.jpg",
-    images: ["img/proj/azap-c2-6.jpg", "img/proj/azap-c2-7.jpg", "img/proj/azap-c2-8.jpg", "img/proj/azap-c2-9.jpg", "img/proj/azap-c2-10.jpg", "img/proj/azap-c2-11.jpg", "img/proj/azap-c2-12.jpg", "img/proj/azap-c2-13.jpg", "img/proj/azap-1.jpg", "img/proj/azap-2.jpg", "img/proj/azap-3.jpg", "img/proj/azap-4.jpg", "img/proj/azap-5.jpg", "img/proj/azap-c2-4.jpg", "img/proj/azap-c2-5.jpg"],
+    images: ["img/proj/azap-c2-6.jpg", "img/proj/azap-c2-7.jpg", "img/proj/azap-c2-8.jpg", "img/proj/azap-c2-9.jpg", "img/proj/azap-c2-10.jpg", "img/proj/azap-c2-11.jpg", "img/proj/azap-c2-12.jpg", "img/proj/azap-c2-13.jpg", "img/proj/azap-1.jpg", "img/proj/azap-2.jpg", "img/proj/azap-3.jpg", "img/proj/azap-4.jpg", "img/proj/azap-5.jpg", "img/proj/azap-c2-4.jpg", "img/proj/azap-c2-5.jpg", "img/proj/azap-new-1.jpg", "img/proj/azap-new-2.jpg", "img/proj/azap-new-3.jpg", "img/proj/azap-new-4.jpg", "video/azap-video-1.mp4", "video/azap-video-2.mp4", "video/azap-video-3.mp4", "video/azap-video-4.mp4"],
     description: "Création et gestion complète d'une marque de vêtements : identité visuelle, création des visuels, impression sérigraphie à la main, préparation et gestion des commandes, envoi et communication.",
     tags: ["Illustrator", "Photoshop", "Sérigraphie", "Branding"],
     year: "2026",
