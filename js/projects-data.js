@@ -3,6 +3,19 @@ const PROJECTS = [
   // ── MIS EN AVANT (featured: true = apparaît en premier) ────
 
   {
+    id: "green-bpm-halloween",
+    title: "Green BPM — Halloween",
+    type: "client",
+    category: "video",
+    featured: true,
+    thumbnail: "https://img.youtube.com/vi/ny1Ihnq_gGU/maxresdefault.jpg",
+    images: ["https://www.youtube.com/embed/ny1Ihnq_gGU"],
+    description: "Vidéo review de la soirée d'Halloween de Green BPM. Format court, tourné et monté sur place.",
+    tags: ["Premiere Pro", "Montage", "Tournage"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "njp-agoro",
     title: "NJP 2026 — Agoro",
     type: "client",
