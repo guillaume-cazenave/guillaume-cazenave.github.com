@@ -3,6 +3,47 @@ const PROJECTS = [
   // ── MIS EN AVANT (featured: true = apparaît en premier) ────
 
   {
+    id: "bam-zamdane",
+    title: "La BAM — Zamdane",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/bam-zamdane-thumb.jpg",
+    images: ["img/proj/bam-zamdane-1.jpg", "img/proj/bam-zamdane-2.jpg", "img/proj/bam-zamdane-3.jpg", "img/proj/bam-zamdane-4.jpg", "img/proj/bam-zamdane-5.jpg", "img/proj/bam-zamdane-6.jpg", "img/proj/bam-zamdane-7.jpg", "img/proj/bam-zamdane-8.jpg", "img/proj/bam-zamdane-9.jpg", "img/proj/bam-zamdane-10.jpg"],
+    description: "Reportage photo du concert de Zamdane à La BAM, salle de musiques actuelles de Metz. Captation en lumière scénique, de l'ambiance de salle aux portraits de scène.",
+    tags: ["Photographie", "Lightroom", "Concert"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "regarde-ma-cam",
+    title: "Regarde ma cam",
+    type: "personnel",
+    category: "video",
+    featured: true,
+    vertical: true,
+    thumbnail: "img/proj/cam-ia-thumb.jpg",
+    images: ["video/cam-ia.mp4"],
+    description: "Format court personnel mêlant prise de vue réelle et VFX : le Lumix S5IIX se démonte pièce par pièce en vol. Concept, tournage, effets et montage réalisés seul.",
+    tags: ["After Effects", "VFX", "IA", "Format vertical"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "notabane-parfums",
+    title: "Coulisses Notabané Parfums",
+    type: "client",
+    category: "video",
+    featured: true,
+    vertical: true,
+    thumbnail: "img/proj/notabane-thumb.jpg",
+    images: ["video/notabane-parfums.mp4"],
+    description: "Immersion dans les coulisses de Notabané Parfums : rencontre avec le parfumeur, visite du laboratoire et découverte du travail des matières. Format vertical pensé pour les réseaux, tourné et monté de A à Z.",
+    tags: ["Premiere Pro", "Tournage", "Montage", "Format vertical"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "green-bpm-halloween",
     title: "Green BPM — Halloween",
     type: "client",
