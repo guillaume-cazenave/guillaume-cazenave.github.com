@@ -3,6 +3,58 @@ const PROJECTS = [
   // ── MIS EN AVANT (featured: true = apparaît en premier) ────
 
   {
+    id: "njp-agoro",
+    title: "NJP 2026 — Agoro",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/njp-agoro-thumb.jpg",
+    images: ["img/proj/njp-agoro-1.jpg", "img/proj/njp-agoro-2.jpg", "img/proj/njp-agoro-3.jpg", "img/proj/njp-agoro-4.jpg", "img/proj/njp-agoro-5.jpg", "img/proj/njp-agoro-6.jpg", "img/proj/njp-agoro-7.jpg", "img/proj/njp-agoro-8.jpg", "img/proj/njp-agoro-9.jpg", "img/proj/njp-agoro-10.jpg", "img/proj/njp-agoro-11.jpg", "img/proj/njp-agoro-12.jpg", "img/proj/njp-agoro-13.jpg", "img/proj/njp-agoro-14.jpg", "img/proj/njp-agoro-15.jpg"],
+    description: "Reportage photo du concert d'Agoro lors de La Pép' en Fête, pendant le festival Nancy Jazz Pulsations.",
+    tags: ["Photographie", "Lightroom", "Concert"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "njp-violett",
+    title: "NJP 2026 — Violett Pi",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/njp-violett-thumb.jpg",
+    images: ["img/proj/njp-violett-1.jpg", "img/proj/njp-violett-2.jpg", "img/proj/njp-violett-3.jpg", "img/proj/njp-violett-4.jpg", "img/proj/njp-violett-5.jpg", "img/proj/njp-violett-6.jpg", "img/proj/njp-violett-7.jpg", "img/proj/njp-violett-8.jpg", "img/proj/njp-violett-9.jpg", "img/proj/njp-violett-10.jpg"],
+    description: "Reportage photo du concert de Violett Pi lors de La Pép' en Fête, pendant le festival Nancy Jazz Pulsations.",
+    tags: ["Photographie", "Lightroom", "Concert"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "njp-chica",
+    title: "NJP 2026 — La Chica",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/njp-chica-thumb.jpg",
+    images: ["img/proj/njp-chica-1.jpg", "img/proj/njp-chica-2.jpg", "img/proj/njp-chica-3.jpg", "img/proj/njp-chica-4.jpg", "img/proj/njp-chica-5.jpg", "img/proj/njp-chica-6.jpg", "img/proj/njp-chica-7.jpg", "img/proj/njp-chica-8.jpg", "img/proj/njp-chica-9.jpg", "img/proj/njp-chica-10.jpg", "img/proj/njp-chica-11.jpg", "img/proj/njp-chica-12.jpg", "img/proj/njp-chica-13.jpg", "img/proj/njp-chica-14.jpg", "img/proj/njp-chica-15.jpg", "img/proj/njp-chica-16.jpg"],
+    description: "Reportage photo du concert de La Chica lors de La Pép' en Fête, pendant le festival Nancy Jazz Pulsations.",
+    tags: ["Photographie", "Lightroom", "Concert"],
+    year: "2026",
+    link: ""
+  },
+  {
+    id: "njp-ambiance",
+    title: "NJP 2026 — Ambiance",
+    type: "client",
+    category: "photo",
+    featured: true,
+    thumbnail: "img/proj/njp-ambiance-thumb.jpg",
+    images: ["img/proj/njp-ambiance-1.jpg", "img/proj/njp-ambiance-2.jpg", "img/proj/njp-ambiance-3.jpg", "img/proj/njp-ambiance-4.jpg", "img/proj/njp-ambiance-5.jpg", "img/proj/njp-ambiance-6.jpg", "img/proj/njp-ambiance-7.jpg", "img/proj/njp-ambiance-8.jpg", "img/proj/njp-ambiance-9.jpg", "img/proj/njp-ambiance-10.jpg", "img/proj/njp-ambiance-11.jpg"],
+    description: "Photos d'ambiance de La Pép' en Fête, pendant le festival Nancy Jazz Pulsations : le public, les coulisses et l'atmosphère du site.",
+    tags: ["Photographie", "Lightroom", "Concert"],
+    year: "2026",
+    link: ""
+  },
+  {
     id: "zintrie-party",
     title: "La Zintrie Party",
     type: "client",
@@ -143,7 +195,7 @@ const PROJECTS = [
     category: "photo",
     featured: false,
     thumbnail: "img/proj/roche-thumb.jpg",
-    images: ["img/proj/roche-1.jpg","img/proj/roche-2.jpg","img/proj/roche-3.jpg","img/proj/roche-4.jpg","img/proj/roche-5.jpg","img/proj/roche-prod-1.jpg","img/proj/roche-prod-2.jpg","img/proj/roche-prod-3.jpg","img/proj/roche-prod-4.jpg","img/proj/roche-prod-5.jpg","img/proj/roche-prod-6.jpg","img/proj/roche-prod-7.jpg","img/proj/roche-prod-8.jpg","img/proj/roche-prod-9.jpg","img/proj/roche-prod-10.jpg","img/proj/roche-prod-11.jpg","img/proj/roche-prod-12.jpg","img/proj/roche-prod-13.jpg"],
+    images: ["img/proj/roche-1.jpg","img/proj/roche-2.jpg","img/proj/roche-3.jpg","img/proj/roche-4.jpg","img/proj/roche-5.jpg","img/proj/roche-prod-1.jpg","img/proj/roche-prod-2.jpg","img/proj/roche-prod-3.jpg","img/proj/roche-prod-4.jpg","img/proj/roche-prod-5.jpg","img/proj/roche-prod-7.jpg","img/proj/roche-prod-8.jpg","img/proj/roche-prod-9.jpg","img/proj/roche-prod-10.jpg","img/proj/roche-prod-11.jpg","img/proj/roche-prod-12.jpg","img/proj/roche-prod-13.jpg"],
     description: "Projet photo avec direction artistique complète, univers dédié à la roche. Conception du concept, shooting et post-production.",
     tags: ["Photoshop", "Lightroom", "Direction artistique"],
     year: "2026",
