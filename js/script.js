@@ -1,10 +1,8 @@
 var NUM_PARTICLES = ( ( ROWS = 100 ) * ( COLS = 300 ) ),
     THICKNESS = Math.pow( 80, 2 ),
     SPACING = 3,
-    MARGIN = 140,
+    MARGIN = 100,
     COLOR = 220,
-    FADE_RATIO = 0.27,
-    OVERFLOW = 0.82,
     DRAG = 0.95,
     EASE = 0.25,
     
@@ -34,9 +32,7 @@ var NUM_PARTICLES = ( ( ROWS = 100 ) * ( COLS = 300 ) ),
     i, n,
     w, h,
     p, s,
-    r, c,
-    x0, x1, y0, y1,
-    FADE, OUT, INV_FADE
+    r, c
     ;
 
 particle = {
@@ -63,31 +59,12 @@ function init() {
   container.style.marginLeft = Math.round( w * -0.5 ) + 'px';
   container.style.marginTop = Math.round( h * -0.5 ) + 'px';
   
-  /* Bornes du fondu appliqué au rendu. Il se cale sur l'étendue des points
-     et non sur le canvas, plus grand à cause de MARGIN — sinon le dégradé
-     commence après la fin des points et les bords restent nets.
-     Ces bornes débordent de OVERFLOW fois la largeur du fondu : un point
-     repoussé dépasse donc un peu la zone avant de s'effacer, au lieu d'être
-     coupé pile sur la limite. */
-  x0 = MARGIN;
-  x1 = MARGIN + ( COLS - 1 ) * SPACING;
-  y0 = MARGIN;
-  y1 = MARGIN + ( ROWS - 1 ) * SPACING;
-
-  FADE = Math.min( x1 - x0, y1 - y0 ) * FADE_RATIO;
-  OUT  = FADE * OVERFLOW;
-
-  x0 -= OUT;  x1 += OUT;
-  y0 -= OUT;  y1 += OUT;
-
-  INV_FADE = 1 / FADE;
-
   for ( i = 0; i < NUM_PARTICLES; i++ ) {
-
+    
     p = Object.create( particle );
     p.x = p.ox = MARGIN + SPACING * ( i % COLS );
     p.y = p.oy = MARGIN + SPACING * Math.floor( i / COLS );
-
+    
     list[i] = p;
   }
 
@@ -171,17 +148,7 @@ function step() {
     for ( i = 0; i < NUM_PARTICLES; i++ ) {
 
       p = list[i];
-
-      px = ~~p.x;
-      py = ~~p.y;
-
-      /* Le fondu suit la position courante, pas celle de repos : un point
-         repoussé hors de la zone s'efface en sortant au lieu de rester net. */
-      d = Math.min( px - x0, x1 - px, py - y0, y1 - py ) * INV_FADE;
-      if ( d <= 0 ) continue;
-
-      b[n = ( px + py * w ) * 4] = b[n+1] = b[n+2] = COLOR;
-      b[n+3] = d >= 1 ? 255 : ( d * 255 ) | 0;
+      b[n = ( ~~p.x + ( ~~p.y * w ) ) * 4] = b[n+1] = b[n+2] = COLOR, b[n+3] = 255;
     }
 
     ctx.putImageData( a, 0, 0 );
