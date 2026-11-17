@@ -30,8 +30,6 @@ body {
   background-color: #000;
 }
 
-#container canvas { display: block; }
-
 /* main — par-dessus le canvas, transparent aux events sauf ses enfants */
 main {
   position: fixed;
