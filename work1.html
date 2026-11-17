@@ -91,8 +91,7 @@
         grid.innerHTML = '<p class="empty-msg">Aucun projet dans cette sélection.</p>';
         return;
       }
-      // Featured en premier
-      filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      // Pas de tri : les projets s'affichent dans l'ordre de projects-data.js
       filtered.forEach(p => {
         const item = document.createElement('div');
         item.className = 'grid-item';
