@@ -30,14 +30,7 @@ body {
   background-color: #000;
 }
 
-/* Bords du champ de particules fondus dans le fond :
-   quand la souris repousse les points, on ne voit plus
-   la limite rectangulaire du canvas. */
-#container canvas {
-  display: block;
-  -webkit-mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 60%, transparent 100%);
-          mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 60%, transparent 100%);
-}
+#container canvas { display: block; }
 
 /* main — par-dessus le canvas, transparent aux events sauf ses enfants */
 main {
@@ -119,4 +112,13 @@ h1#titre:hover {
   .text-container { left: 6vw; }
   .icon-container { right: 6vw; gap: 16px; }
   .icon-link      { font-size: 1.3rem; }
+}
+
+/* Icônes en SVG inline (plus de dépendance Font Awesome) :
+   dimensionnées en em pour suivre le font-size responsive de .icon-link */
+.icon-link .fa-svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: block;
 }
