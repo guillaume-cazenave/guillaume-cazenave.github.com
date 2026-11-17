@@ -317,3 +317,53 @@ html, body {
   .about-main { padding: 90px 5% 40px; }
   .about-right h1 { font-size: clamp(1.8rem, 9vw, 3rem); }
 }
+
+/* ── Appel à l'action ───────────────────── */
+.contact-cta {
+  border-top: 1px solid var(--border, rgba(255,255,255,0.15));
+  border-bottom: 1px solid var(--border, rgba(255,255,255,0.15));
+  padding: 26px 0 30px;
+  margin: 4px 0 6px;
+}
+
+.contact-cta p {
+  color: var(--text-dim, rgba(236,236,238,0.65));
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  max-width: 48ch;
+}
+
+.cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 22px;
+  border: 1px solid var(--border, rgba(255,255,255,0.3));
+  border-radius: 3px;
+  color: var(--text, #ececee);
+  text-decoration: none;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+
+.cta-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+.cta-link:hover {
+  background: var(--text, #fff);
+  color: var(--bg, #000);
+  border-color: var(--text, #fff);
+}
+
+@media screen and (max-width: 768px) {
+  .cta-links { flex-direction: column; align-items: stretch; }
+  .cta-link { justify-content: center; font-size: 0.8rem; padding: 12px 16px; word-break: break-all; }
+}

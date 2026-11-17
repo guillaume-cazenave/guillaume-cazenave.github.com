@@ -30,6 +30,15 @@ body {
   background-color: #000;
 }
 
+/* Bords du champ de particules fondus dans le fond :
+   quand la souris repousse les points, on ne voit plus
+   la limite rectangulaire du canvas. */
+#container canvas {
+  display: block;
+  -webkit-mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 60%, transparent 100%);
+          mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 60%, transparent 100%);
+}
+
 /* main — par-dessus le canvas, transparent aux events sauf ses enfants */
 main {
   position: fixed;
