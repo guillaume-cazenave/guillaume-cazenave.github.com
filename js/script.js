@@ -1,8 +1,15 @@
 var NUM_PARTICLES = ( ( ROWS = 100 ) * ( COLS = 300 ) ),
     THICKNESS = Math.pow( 80, 2 ),
     SPACING = 3,
-    MARGIN = 100,
+    MARGIN = 140,
     COLOR = 220,
+
+    /* Fondu des bords : largeur du dégradé (part du plus petit côté de la
+       zone) et part de ce dégradé qui déborde hors zone, pour qu'un point
+       repoussé dépasse un peu avant de s'effacer au lieu d'être coupé net. */
+    FADE_RATIO = 0.27,
+    OVERFLOW = 0.82,
+
     DRAG = 0.95,
     EASE = 0.25,
     
@@ -32,7 +39,11 @@ var NUM_PARTICLES = ( ( ROWS = 100 ) * ( COLS = 300 ) ),
     i, n,
     w, h,
     p, s,
-    r, c
+    r, c,
+    px, py,
+    x0, x1, y0, y1,
+    FADE, OUT, INV_FADE,
+    imageData, buf
     ;
 
 particle = {
@@ -59,6 +70,28 @@ function init() {
   container.style.marginLeft = Math.round( w * -0.5 ) + 'px';
   container.style.marginTop = Math.round( h * -0.5 ) + 'px';
   
+  /* Le buffer du rendu est alloué ICI, une fois pour toutes. Le code
+     d'origine appelait createImageData à chaque image, soit plus de
+     60 Mo/s d'allocations que le ramasse-miettes devait reprendre par
+     à-coups : c'est ce qui faisait gonfler la mémoire et saccader. */
+  imageData = ctx.createImageData( w, h );
+  buf = imageData.data;
+
+  /* Bornes du fondu, calées sur l'étendue réelle des points (le canvas est
+     plus grand à cause de MARGIN) et élargies de OUT vers l'extérieur. */
+  x0 = MARGIN;
+  x1 = MARGIN + ( COLS - 1 ) * SPACING;
+  y0 = MARGIN;
+  y1 = MARGIN + ( ROWS - 1 ) * SPACING;
+
+  FADE = Math.min( x1 - x0, y1 - y0 ) * FADE_RATIO;
+  OUT  = FADE * OVERFLOW;
+
+  x0 -= OUT;  x1 += OUT;
+  y0 -= OUT;  y1 += OUT;
+
+  INV_FADE = 1 / FADE;
+
   for ( i = 0; i < NUM_PARTICLES; i++ ) {
     
     p = Object.create( particle );
@@ -143,15 +176,25 @@ function step() {
 
   } else {
 
-    b = ( a = ctx.createImageData( w, h ) ).data;
+    buf.fill( 0 );
 
     for ( i = 0; i < NUM_PARTICLES; i++ ) {
 
       p = list[i];
-      b[n = ( ~~p.x + ( ~~p.y * w ) ) * 4] = b[n+1] = b[n+2] = COLOR, b[n+3] = 255;
+
+      px = ~~p.x;
+      py = ~~p.y;
+
+      /* Opacité d'après la position courante : un point repoussé hors de
+         la zone s'efface en sortant au lieu de rester net. */
+      d = Math.min( px - x0, x1 - px, py - y0, y1 - py ) * INV_FADE;
+      if ( d <= 0 ) continue;
+
+      buf[n = ( px + py * w ) * 4] = buf[n+1] = buf[n+2] = COLOR;
+      buf[n+3] = d >= 1 ? 255 : ( d * 255 ) | 0;
     }
 
-    ctx.putImageData( a, 0, 0 );
+    ctx.putImageData( imageData, 0, 0 );
   }
 
   if ( stats ) stats.end();
